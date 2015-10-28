@@ -1,6 +1,6 @@
 #!/bin/python
 #-------------------------------------------------------------------------------
-# Purpose : To do bulk update on Unix Server Table.
+# Purpose : To do bulk update on uServer Table.
 #
 # Author:      1427693
 #
@@ -34,7 +34,7 @@ step 1: Generate a bulk update template.
 
 we have three standard template which can be used for form filling. 
 
-Generice Template : A generic template which covers of columns seen from unix inventor page.
+Generice Template : A generic template which covers of columns seen from webpage.
     sam@bash$: python update_server.py --template
 
      template create as 'test.csv'
@@ -45,7 +45,7 @@ Generice Template : A generic template which covers of columns seen from unix in
 
         ( or )
 
-Application Template : Template which is specifically for updating Application details in unix inventor page.
+Application Template : Template which is specifically for updating Application details on inventory page.
 
     sam@bash$: python update_server.py --app_template
 
