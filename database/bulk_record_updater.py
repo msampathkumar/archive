@@ -276,7 +276,7 @@ def generate_sql_queries(filename='test.csv'):
     return all_queries
         
 def save_sql_queries(all_queries, filename='queries.sql'):
-    fp = open('queries.sql', 'w')
+    fp = open(filename, 'w')
     store = []
     for sql in all_queries:
         sql = sql.replace('\n', '\t').strip()
