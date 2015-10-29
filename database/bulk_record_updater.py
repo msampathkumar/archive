@@ -99,8 +99,11 @@ step 3.2
 
 import os
 import csv
+import cx_Oracle
 from pprint import pprint
 from optparse import OptionParser
+
+from db_config import USERNAME, PASSWORD,DSN_TNS
 
 
 # resetting global params
@@ -292,7 +295,8 @@ def print_sql_queries(all_queries):
         print each
 
 def run(all_queries, commit=False):
-    from db_config import cursor
+    connection = cx_Oracle.connect(USERNAME, PASSWORD,DSN_TNS)
+    cursor = connection.cursor()
     failed = []
     for each in all_queries:
         try:
@@ -310,7 +314,7 @@ def runfile(filename="queries.sql"):
     data = fp.readlines()
     data = ''.join(data).split(';')
     all_queries = [ x.strip() for x in data]
-    run(all_queries)
+    run(all_queries, True)
 
 def main(filename='test.csv', save_queries=True, print_queries=True, run_queries=True, run_commit=True ):
     all_queries = generate_sql_queries(filename)
